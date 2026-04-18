@@ -1,38 +1,172 @@
-.App {
-  text-align: center;
+/* src/App.css */
+
+/* Reset & base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(145deg, #f9f3e6 0%, #e6e9f0 100%);
   min-height: 100vh;
+  padding: 2rem;
+}
+
+/* Conteneur principal */
+.app-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Titre avec dégradé néon doux */
+.app-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ff6a88, #ff99ac, #6c5ce7);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 2rem;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Grille responsive */
+.components-grid {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+/* Cartes avec effet glassmorphisme moderne */
+.card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border-radius: 2rem;
+  box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  padding: 1.8rem;
+  flex: 1;
+  min-width: 320px;
+  transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 35px 50px -15px rgba(0, 0, 0, 0.25);
+  background: rgba(255, 255, 255, 0.85);
+}
+
+/* Titres des cartes */
+.card h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(120deg, #2c3e66, #4a6fa5);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  border-left: 5px solid #ff8c42;
+  padding-left: 1rem;
+}
+
+/* Liste */
+.card ul {
+  list-style: none;
+  margin: 1rem 0;
+}
+
+.card li {
+  background: rgba(255, 255, 255, 0.8);
+  margin: 0.75rem 0;
+  padding: 0.8rem 1.2rem;
+  border-radius: 1.2rem;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #1e2a3a;
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.card li:hover {
+  background: #ffffff;
+  border-left: 4px solid #ff8c42;
+  transform: translateX(8px);
+  box-shadow: 0 8px 15px -6px rgba(0, 0, 0, 0.1);
+}
+
+.city {
+  font-size: 0.85rem;
+  color: #6c5ce7;
+  font-weight: 500;
+  display: inline-block;
+  margin-top: 0.2rem;
+}
+
+/* États de chargement / erreur */
+.state-card {
+  padding: 1.8rem;
+  text-align: center;
+  font-weight: 600;
+  border-radius: 2rem;
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.loading {
+  background: linear-gradient(145deg, #e0f2fe, #bae6fd);
+  color: #0369a1;
+  border-left: 8px solid #0ea5e9;
+}
+
+.error {
+  background: linear-gradient(145deg, #ffe4e4, #ffd6d6);
+  color: #b91c1c;
+  border-left: 8px solid #ef4444;
+}
+
+/* Bouton recharger moderne */
+.reload-btn {
+  background: linear-gradient(95deg, #ff8c42, #ff6a88);
+  border: none;
   color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 3rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 1.2rem;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 12px rgba(255, 108, 99, 0.3);
 }
 
-.App-link {
-  color: #61dafb;
+.reload-btn:hover {
+  transform: scale(1.02);
+  background: linear-gradient(95deg, #ff7a2f, #ff5a78);
+  box-shadow: 0 8px 18px rgba(255, 108, 99, 0.4);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.reload-btn:active {
+  transform: scale(0.98);
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  body {
+    padding: 1rem;
   }
-  to {
-    transform: rotate(360deg);
+  .app-title {
+    font-size: 1.8rem;
+  }
+  .card {
+    min-width: 280px;
   }
 }

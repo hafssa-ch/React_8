@@ -1,23 +1,16 @@
-import logo from './logo.svg';
+// src/App.js
+import FetchData from './components/FetchData';
+import AxiosData from './components/AxiosData';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <h1 className="app-title">✨ TP – Consommer une API avec React</h1>
+      <div className="components-grid">
+        <FetchData />
+        <AxiosData />
+      </div>
     </div>
   );
 }
